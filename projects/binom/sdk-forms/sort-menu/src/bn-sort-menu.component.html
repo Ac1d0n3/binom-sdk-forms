@@ -1,1 +1,33 @@
-<p>bn-sort-menu works!</p>
+<button mat-icon-button  class="bn-button-fa"
+[matMenuTriggerFor]="menu"
+matTooltip="{{translateTag+'bnOrderMenue.orderBy' | translate}} {{active}} {{(translateTag+'bnOrderMenue.'+(reverse?  'desc': 'asc')) | translate}}"
+[matTooltipDisabled]="!enableToolTips">
+<i [class]="reverse? 'fas fa-sort-amount-down':'fas fa-sort-amount-up'"></i>
+</button>
+
+<mat-menu #menu="matMenu" class="sort-menue-box" > 
+  <div class="sort-menue-panel  theme-textcolor" (click)="$event.stopPropagation();">
+    <div *ngFor="let item of orderData">
+      <div class="sort-menue-item" >
+        <div class="sort-menue-name" (click)="sortBy(item.name, !reverse)">
+          <div class="sort-menue-name-label {{active==item.name ? 'primary-color':'accent-color'}}">{{item.name | translate }}</div></div>
+
+        <div class="sort-menue-buttons">
+
+          <button mat-button color="{{active==item.name && !reverse  ? 'primary':'accent'}}"  (click)="sortBy(item.name, false)">
+              <i class="fas fa-sort-amount-up bn-button-fa"></i>
+          </button>
+
+          <button mat-button color="{{active==item.name && reverse  ? 'primary':'accent'}}" (click)="sortBy(item.name, true)">
+            <i class="fas fa-sort-amount-down bn-button-fa"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div style="padding-right: 5px;padding-left: 5px;">
+      <button [disabled]="active ===''" mat-button color="warn" *ngIf="showClear"  (click)="sortBy('doClearValues', true)">
+        {{'bnOrderMenue.clearOrder' | translate}}
+      </button>
+    </div>
+  </div>
+</mat-menu>

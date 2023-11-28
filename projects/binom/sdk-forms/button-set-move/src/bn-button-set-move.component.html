@@ -1,1 +1,33 @@
-<p>bn-button-set-move works!</p>
+<div class="buttonSpace">
+
+    <button class="bn-button-move bn-button-fa" (click)="moveRight()"
+    matTooltip="{{translateTag+'bnButtoneSetMove.singleL'| translate}}"
+    [matTooltipDisabled]="!enableToolTips"
+    [disabled]="leftSelected.length== 0" mat-stroked-button [color]="color">
+      <i class="fas fa-angle-right"></i>
+    </button>
+  
+    <button class="bn-button-move  bn-button-fa" (click)="moveAllRight()"
+    matTooltip="{{translateTag+'bnButtoneSetMove.singleLA'| translate}}"
+    [matTooltipDisabled]="!enableToolTips"
+    [disabled]="leftData.length==0 || leftSelected.length!= 0" mat-stroked-button [color]="color">
+      <i class="fas fa-angle-double-right"></i>
+    </button>
+  
+    <button class="bn-button-move  bn-button-fa" (click)="moveLeft()"
+    matTooltip="{{translateTag+'bnButtoneSetMove.singleR'| translate}}"
+    [matTooltipDisabled]="!enableToolTips"
+    [disabled]="rightSelected.length == 0" mat-stroked-button [color]="color">
+      <i class="fas fa-angle-left"></i>
+    </button>
+  
+    <button class="bn-button-move  bn-button-fa" (click)="moveAllLeft()"
+    matTooltip="{{translateTag+'bnButtoneSetMove.singleRA'| translate}}"
+    [matTooltipDisabled]="!enableToolTips"
+    [disabled]="rightData.length==0 || rightSelected.length != 0" mat-stroked-button [color]="color">
+      <i class="fas fa-angle-double-left"></i>
+    </button>
+  
+  
+  
+  </div>

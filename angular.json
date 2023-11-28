@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/binom/sdk-forms",
       "sourceRoot": "projects/binom/sdk-forms/src",
-      "prefix": "lib",
+      "prefix": "bn",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
