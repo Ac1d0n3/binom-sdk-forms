@@ -1,0 +1,57 @@
+{
+  "name": "@binom/sdk-forms",
+  "version": "1.0.1",
+  "description": "forms Lib for projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ac1d0n3/binom-sdk-forms"
+  },
+  "bugs": {
+    "url": "https://github.com/Ac1d0n3/binom-sdk-forms/issues"
+  },
+  "homepage": "https://binom.net",
+  "schematics": "./schematics/collection.json",
+  "ng-update": {
+    "migrations": "./schematics/migrations.json"
+  },
+  "scripts": {
+    "build:sass": "sass styles/forms.scss assets/forms.css",
+    "build:schematics": "tsc -p tsconfig.schematics.json",
+    "postbuild:schematics": "copyfiles schematics/migrations.json schematics/collection.json ../../../dist/binom/sdk-forms/"
+  },
+  "exports": {
+    "./styles": {
+      "default": "./styles/forms.scss"
+    }
+  },
+  "keywords": [
+    "binom",
+    "sdk",
+    "material",
+    "ngx-translate",
+    "angular",
+    "library",
+    "forms"
+  ],
+  "author": "Thomas Lindackers (binom)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@angular/common": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@ngx-translate/core": "^15.0.0",
+    "@binom/sdk-core": "^1.0.9"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "ng-add": {
+    "save": "dependencies"
+  },
+  "devDependencies": {
+    "copyfiles": "file:../../node_modules/copyfiles",
+    "typescript": "file:../../node_modules/typescript"
+  }
+}
