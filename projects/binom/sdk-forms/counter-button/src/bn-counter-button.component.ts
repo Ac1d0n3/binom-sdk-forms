@@ -17,7 +17,7 @@ export class BnCounterButtonComponent  {
   @Output() countChanged: EventEmitter<number> = new EventEmitter<number>();
 
   @Input() type:any = 'default';
-  @Input() color:any = 'primary';
+  @Input() color:any = '';
   @Input() badgecolor:any = 'accent';
 
   @Input() count:number = 0;

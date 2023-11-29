@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'lib-bn-button-set-move',
+  selector: 'bn-button-set-move',
   standalone: true,
   imports: [CommonModule,MatButtonModule,MatTooltipModule,TranslateModule],
   templateUrl: './bn-button-set-move.component.html',
-  styleUrl: './bn-button-set-move.component.css'
+  styleUrl: './bn-button-set-move.component.css',
+  //encapsulation:ViewEncapsulation.None
 })
 export class BnButtonSetMoveComponent implements OnInit {
 

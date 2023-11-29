@@ -1,0 +1,113 @@
+.pick-list-wrapper{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 50px 1fr;
+    position: relative;
+  }
+  
+  .pl-wWrapper{
+    border: 1px solid ;
+    height:100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    position: relative;
+  }
+  
+  .pl-wrapper-no-header{
+    border: 1px solid;
+    height:100%;
+    overflow: auto;
+  
+  }
+  
+  .cdk-view-box{
+    display: block;
+    width:100%;
+    height:100%
+  }
+  
+  .pick-list-wrapper .empty-list .cdk-virtual-scroll-content-wrapper{
+    height:100%;
+  }
+  
+  .button-space-wrapper{
+    position: relative;
+  }
+  
+  .pl-wrapper .button-space{
+    padding-top: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  
+  
+  .picklist{
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 0px 0px 0px 0px !important;
+  }
+  
+  
+  .picklist-item{
+    display: table !important;
+    width:100%;
+    background: inherit;
+    font-size: 14px!important;
+    box-sizing: border-box;
+    margin: 0px;
+    border-bottom: 1px solid ;
+    padding:  0px  0px 0px 10px !important;
+    line-height: normal !important;
+  }
+  
+  
+  .picklist-content{
+    height: 100%;
+    display: table-cell;
+  
+    width: calc(80% - 80px);
+    vertical-align: middle;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  
+  .pl-icon{
+    width: 40px;
+  }
+  
+   .picklist-before-after{
+    display: table-cell !important;
+    width: 40px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .picklistItem:last-child {
+      font-weight: inherit;
+  }
+  
+  .cdk-drag-preview   {
+     display: block;
+     padding-left: 15px;
+     background: white;
+     box-sizing: border-box;
+     border-radius: 4px;
+     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+       0 8px 10px 1px rgba(0, 0, 0, 0.14),
+       0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  

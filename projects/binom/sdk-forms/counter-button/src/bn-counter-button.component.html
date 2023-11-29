@@ -1,1 +1,18 @@
-<p>bn-counter-button works!</p>
+<button class="bn-button-counter" type="button"  *ngIf="type === 'raised'"
+mat-raised-button [color]="color"
+[matBadge]="count"
+[matBadgeColor]="badgecolor" [matBadgeHidden]="count === 0 || showCount !== 'badge'"
+(click)="handleButtonClick()">{{buttonlabel | translate}}</button>
+
+
+<button class="bn-button-counter" type="button"  *ngIf="type === 'default'"
+mat-button [color]="color"
+[matBadge]="count"
+[matBadgeColor]="badgecolor" [matBadgeHidden]="count === 0 || showCount !== 'badge'"
+(click)="handleButtonClick()">{{buttonlabel | translate }}</button>
+
+<button class="bn-button-counter" type="button"  *ngIf="type === 'stroked'"
+mat-stroked-button [color]="color"
+[matBadge]="count"
+[matBadgeColor]="badgecolor" [matBadgeHidden]="count === 0 || showCount !== 'badge'"
+(click)="handleButtonClick()">{{buttonlabel | translate }}</button>

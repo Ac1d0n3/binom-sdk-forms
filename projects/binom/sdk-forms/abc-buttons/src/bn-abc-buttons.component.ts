@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -8,7 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [CommonModule,MatButtonModule],
   templateUrl: './bn-abc-buttons.component.html',
-  styleUrl: './bn-abc-buttons.component.css'
+  styleUrl: './bn-abc-buttons.component.css',
+  //encapsulation:ViewEncapsulation.None
 })
 export class BnAbcButtonsComponent {
   alphabet: string[] = [];
