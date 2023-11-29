@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,Output,EventEmitter, ViewChildren, ContentChild,ElementRef,TemplateRef,QueryList } from '@angular/core';
+import { Component, OnInit, Input,Output,EventEmitter, ViewChildren, ContentChild,ElementRef,TemplateRef,QueryList, ViewEncapsulation } from '@angular/core';
 import { CdkDragDrop, moveItemInArray,transferArrayItem,copyArrayItem,} from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
@@ -11,12 +11,14 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatRippleModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { BnProgressContentComponent } from '@binom/sdk-core/progress-content';
 @Component({
-  selector: 'bn-pick-list',
+  selector: 'bn-picklist',
   standalone: true,
-  imports: [CommonModule,BnMiniHeaderComponent,DragDropModule,BnButtonSetSortComponent,BnButtonSetMoveComponent,MatCheckboxModule,ScrollingModule,MatRippleModule,FormsModule,TranslateModule],
+  imports: [CommonModule,BnMiniHeaderComponent,DragDropModule,BnButtonSetSortComponent,BnButtonSetMoveComponent,MatCheckboxModule,ScrollingModule,MatRippleModule,FormsModule,TranslateModule, BnProgressContentComponent],
   templateUrl: './bn-pick-list.component.html',
-  styleUrl: './bn-pick-list.component.css'
+  styleUrl: './bn-pick-list.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class BnPickListComponent implements OnInit {
 
@@ -235,6 +237,7 @@ export class BnPickListComponent implements OnInit {
   }
 
   doFilterPossible(){
+ 
     this.possibleData = [];
     this.possibleData = this.possibleDataAll.filter( str => {
       if(!str[this.leftField]) return false;
@@ -242,7 +245,7 @@ export class BnPickListComponent implements OnInit {
     });
 
     //this.possibleData = [...this.possibleData]
-
+  
   }
 
   doFilterSelected(){
@@ -252,9 +255,9 @@ export class BnPickListComponent implements OnInit {
       return str[this.rightField].toLowerCase().includes(this.rightSearch.toLowerCase());
     });
 
-    //this.possibleData = [...this.possibleData]
+   // this.possibleData = [...this.possibleData]
 
-    //console.log('P',this.possibleDataAll)
+ 
   }
 
   filterPossible(data:any){

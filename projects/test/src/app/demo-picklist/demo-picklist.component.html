@@ -1,1 +1,34 @@
-<p>demo-picklist works!</p>
+<div style="height:200px;width:90%;">
+    <bn-picklist
+    [searchFields]="pickListSearchIn"
+    [currentSelected]="pickListActive"
+    [withHeader]="false"
+    [withSearch]="false"
+    [possibleData]="pickListPossible"
+    [selectedData]="pickListSelected"
+    [dataLoaded]="true"
+    [dataLoadedSelected]="true"
+    (pickListDataChange)="pickListeDataChange($event)">
+
+      <ng-template #picklistContent let-item>
+        <h3 style="color:orange;">{{ item.name }}</h3>
+        <p> with inside template</p>
+        <div [hidden]="!item.icon">  </div>
+      </ng-template>
+
+    </bn-picklist></div>
+
+    <div style="height:200px;width:90%;margin-top:30px;">
+      <bn-picklist
+     
+      [possibleData]="pickListPossible"
+      [selectedData]="pickListSelected"
+      [searchFields]="pickListSearchIn"
+      [currentSelected]="pickListActive"
+      [orderData]="pickListSearchIn"
+      [dataLoaded]="true"
+      [dataLoadedSelected]="true"
+      [multiple]= "true"
+      (pickListDataChange)="pickListeDataChange($event)"
+      ></bn-picklist>
+    </div>

@@ -37,6 +37,10 @@
 
 }
 
+.bn-mini-search .mdc-text-field{
+  background-color: transparent !important;
+}
+
 .bn-search-options{
   position: absolute;
   top:0px;

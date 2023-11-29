@@ -15,7 +15,7 @@
         ></bn-mini-header>
   
       </div>
-
+      <bn-progress-content *ngIf="!dataLoaded" ></bn-progress-content>
       <cdk-virtual-scroll-viewport [itemSize]="vItemSize" [hidden]="!dataLoaded"
       [minBufferPx]="vBuffer" [maxBufferPx]="vBuffer*1.5"
       class="cdk-view-box {{possibleData.length == 0  ? 'empty-list':''}}">
@@ -84,7 +84,8 @@
           [label]="showCount? selectedHeader + ' (' + selectedData.length +')':selectedHeader "></bn-mini-header>
     
         </div>
-       
+        <bn-progress-content *ngIf="!dataLoadedSelected" ></bn-progress-content>
+
         <cdk-virtual-scroll-viewport [itemSize]="vItemSize"
         [minBufferPx]="vBuffer" [maxBufferPx]="vBuffer*1.5" [hidden]="!dataLoaded"
     

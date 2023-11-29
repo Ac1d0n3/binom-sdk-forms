@@ -1,7 +1,7 @@
 .pick-list-wrapper{
     display: grid;
     height: 100%;
-    grid-template-columns: 1fr 50px 1fr;
+    grid-template-columns: 1fr 60px 1fr;
     position: relative;
   }
   
@@ -33,6 +33,7 @@
   
   .button-space-wrapper{
     position: relative;
+    text-align: center;
   }
   
   .pl-wrapper .button-space{

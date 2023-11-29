@@ -51,11 +51,6 @@ export const routes: Routes = [{
     },
 
     {
-        path: 'components/form-error',
-        loadComponent:  () => import('./demo-form-er/demo-form-er.component').then(m => m.DemoFormErComponent)
-    },
-
-    {
         path: 'components/phone-inputs',
         loadComponent:  () => import('./demo-phone-inputs/demo-phone-inputs.component').then(m => m.DemoPhoneInputsComponent)
     },

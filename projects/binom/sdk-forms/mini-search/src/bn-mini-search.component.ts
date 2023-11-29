@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { debounceTime, distinctUntilChanged, tap} from 'rxjs/operators';
 import { Subscription, fromEvent  } from "rxjs";
 import { NumberInput,BooleanInput,coerceBooleanProperty,coerceNumberProperty } from '@angular/cdk/coercion';
@@ -14,7 +14,8 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule,BnSelectIconTriggerComponent, MatInputModule, MatFormFieldModule, FormsModule, TranslateModule],
   templateUrl: './bn-mini-search.component.html',
-  styleUrl: './bn-mini-search.component.css'
+  styleUrl: './bn-mini-search.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class BnMiniSearchComponent  implements OnInit, AfterViewInit, OnDestroy {
   @Input() color!:any;

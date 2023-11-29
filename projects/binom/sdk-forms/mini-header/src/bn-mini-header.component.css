@@ -1,0 +1,26 @@
+.bn-mini-header, .bn-mini-header-sort{
+    border: 0px;
+    border-bottom: 1px solid;
+    font-size: 14px;
+    height: 40px !important;
+    min-height: 40px !important;
+     max-height: 40px !important;
+    padding:  0px  0px 0px 10px !important;
+
+}
+.bn-mini-header div,  .bn-mini-header-sort div {
+    margin-top: -5px;
+}
+
+.bn-mini-header{
+    display: grid !important;
+    grid-template-columns: 1fr 48px;
+    width:100%
+}
+
+
+.bn-mini-header-sort{
+    display: grid !important;
+    grid-template-columns: 1fr 48px 48px;
+    width:100%
+}
