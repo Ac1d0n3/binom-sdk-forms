@@ -4,20 +4,17 @@ matTooltip="{{translateTag+'bnOrderMenue.orderBy' | translate}} {{active}} {{(tr
 [matTooltipDisabled]="!enableToolTips">
 <i [class]="reverse? 'fas fa-sort-amount-down':'fas fa-sort-amount-up'"></i>
 </button>
-
 <mat-menu #menu="matMenu" class="sort-menue-box" > 
   <div class="sort-menue-panel  theme-textcolor" (click)="$event.stopPropagation();">
     <div *ngFor="let item of orderData">
       <div class="sort-menue-item" >
         <div class="sort-menue-name" (click)="sortBy(item.name, !reverse)">
-          <div class="sort-menue-name-label {{active==item.name ? 'accent-color':''}}">{{item.name | translate }}</div></div>
-
+          <div class="sort-menue-name-label {{active==item.name ? 'accent-color':''}}">{{item.name | translate }}</div>
+        </div>
         <div class="sort-menue-buttons">
-
           <button mat-button color="{{active==item.name && !reverse  ? 'accent':''}}"  (click)="sortBy(item.name, false)">
               <i class="fas fa-sort-amount-up bn-button-fa"></i>
           </button>
-
           <button mat-button color="{{active==item.name && reverse  ? 'accent':''}}" (click)="sortBy(item.name, true)">
             <i class="fas fa-sort-amount-down bn-button-fa"></i>
           </button>
@@ -30,7 +27,6 @@ matTooltip="{{translateTag+'bnOrderMenue.orderBy' | translate}} {{active}} {{(tr
           {{'bnOrderMenue.clearOrder' | translate}}
         </button>
       }
-     
     </div>
   </div>
 </mat-menu>
