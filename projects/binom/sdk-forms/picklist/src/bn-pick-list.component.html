@@ -1,20 +1,21 @@
 
 <div class="pick-list-wrapper">
     <div [class]="(withHeader|| withSearch? 'pl-wrapper':'pl-wrapper-no-header') + ' regular-border'">
-      <div *ngIf="withHeader || withSearch">
-  
-        <bn-mini-header
-        (searchTextChange)="filterPossible($event)"
-        (activeSearchFields)="changePossibleField($event)"
-        (activeOrder)="orderChangePossible($event)"
-        [withSearch]="withSearch" [searchFields]="searchFields"
-        [currentSelected]="currentSelected" [orderData]="orderData"
-        [label]="showCount? possibleHeader + ' (' + possibleData.length +')': possibleHeader "
-        [enableToolTips]="enableToolTips"
-        [translateTag]="translateTag"
-        ></bn-mini-header>
-  
-      </div>
+
+      @if(withHeader || withSearch){
+        <div>
+          <bn-mini-header
+          (searchTextChange)="filterPossible($event)"
+          (activeSearchFields)="changePossibleField($event)"
+          (activeOrder)="orderChangePossible($event)"
+          [withSearch]="withSearch" [searchFields]="searchFields"
+          [currentSelected]="currentSelected" [orderData]="orderData"
+          [label]="showCount? possibleHeader + ' (' + possibleData.length +')': possibleHeader "
+          [enableToolTips]="enableToolTips"
+          [translateTag]="translateTag"
+          ></bn-mini-header>
+        </div>
+      }
 
       @if(!dataLoaded){ <bn-progress-content></bn-progress-content> }
      
@@ -26,30 +27,26 @@
       [cdkDropListSortingDisabled]="!sortable"
       (cdkDropListDropped)="drop($event)" id="{{idStr}}_possible">
   
-        <div
-          *cdkVirtualFor="let item of possibleData; trackBy: trackByFn"
+        <div *cdkVirtualFor="let item of possibleData; trackBy: trackByFn"
           matRipple [matRippleDisabled]="picklistContent"
           class="{{!picklistContent ? 'mat-option':''}} picklist-item regular-border " [cdkDragData]="item"
-          cdkDrag [cdkDragDisabled]="!dragable" (cdkDragEntered)="dragStarted()" (cdkDragEnded)="dragEnded()"
-          >
-  
-          <div class="picklist-before-after" *ngIf="(item.icon !== undefined || iconSpacer===true ) && !picklistContent">
-            <i [class]="'pl-icon ' + item.fontSet + ' '+ item.icon "></i>
-          </div>
-  
+          cdkDrag [cdkDragDisabled]="!dragable" (cdkDragEntered)="dragStarted()" (cdkDragEnded)="dragEnded()">
+
+          @if((item.icon !== undefined || iconSpacer===true ) && !picklistContent){
+            <div class="picklist-before-after">
+              <i [class]="'pl-icon ' + item.fontSet + ' '+ item.icon "></i>
+            </div>
+          }
+         
           <div class="picklist-content {{item.icon? '':'no-icon'}}">
-  
-            <ng-template *ngIf="picklistContent"
-              ngFor let-item
-              [ngForOf]="[item]"
-              [ngForTemplate]="picklistContent" >
-            </ng-template>
-            
+            @if(picklistContent){
+              <ng-template ngFor let-item [ngForOf]="[item]" [ngForTemplate]="picklistContent"></ng-template>
+            }
             @if(!picklistContent){
               <div>{{item[label] | translate}} </div>
             }
-           
           </div>
+
           <div class="picklist-before-after">
             <mat-checkbox [(ngModel)]="item.selected" (change)="addRemoveSelection(item,'possible')"></mat-checkbox>
           </div>
@@ -75,25 +72,25 @@
     </div>
   
     <div [class]="(withHeader || withSearch? 'pl-wrapper':'pl-wrapper-no-header') + ' regular-border'" >
-        <div  *ngIf="withHeader || withSearch">
-    
-          <bn-mini-header
-          (searchTextChange)="filterSelected($event)"
-          (activeSearchFields)="changeSelectedField($event)"
-          (activeOrder)="orderChangeSelected($event)"
-          [withSearch]="withSearch" [searchFields]="searchFields"
-          [currentSelected]="currentSelected" [orderData]="orderData"
-          [enableToolTips]="enableToolTips"
-          [translateTag]="translateTag"
-          [label]="showCount? selectedHeader + ' (' + selectedData.length +')':selectedHeader "></bn-mini-header>
-    
-        </div>
+
+        @if(withHeader || withSearch){
+          <div>
+            <bn-mini-header
+            (searchTextChange)="filterSelected($event)"
+            (activeSearchFields)="changeSelectedField($event)"
+            (activeOrder)="orderChangeSelected($event)"
+            [withSearch]="withSearch" [searchFields]="searchFields"
+            [currentSelected]="currentSelected" [orderData]="orderData"
+            [enableToolTips]="enableToolTips"
+            [translateTag]="translateTag"
+            [label]="showCount? selectedHeader + ' (' + selectedData.length +')':selectedHeader "></bn-mini-header>
+          </div>
+        }
+       
         @if(!dataLoadedSelected){ <bn-progress-content></bn-progress-content> }
 
-        <cdk-virtual-scroll-viewport [itemSize]="vItemSize"
-        [minBufferPx]="vBuffer" [maxBufferPx]="vBuffer*1.5" [hidden]="!dataLoaded"
-    
-        class="cdk-view-box {{selectedData.length == 0 ? 'empty-list':''}}">
+        <cdk-virtual-scroll-viewport [itemSize]="vItemSize" [minBufferPx]="vBuffer" [maxBufferPx]="vBuffer*1.5" [hidden]="!dataLoaded"
+          class="cdk-view-box {{selectedData.length == 0 ? 'empty-list':''}}">
 
         <div class="picklist" cdkDropList #plSelected="cdkDropList" style="height:100%"
         [cdkDropListConnectedTo]="[plPossible]" [cdkDropListData]="selectedData"
@@ -107,26 +104,25 @@
             <div class="picklist-before-after" *ngIf="(item.icon !== undefined || iconSpacer===true ) && !picklistContent">
               <i [class]="'pl-icon ' + item.fontSet + ' '+ item.icon "></i></div>
             <div class="picklist-content {{item.icon? '':'no-icon'}}">
-    
-              <ng-template *ngIf="picklistContent"
-                ngFor let-item
-                [ngForOf]="[item]"
-                [ngForTemplate]="picklistContent">
-              </ng-template>
+              
+              @if(picklistContent){
+                <ng-template ngFor let-item [ngForOf]="[item]" [ngForTemplate]="picklistContent"></ng-template>
+              }
               
               @if(!picklistContent){ <div>{{item[label] | translate}}</div> }
              
     
             </div>
-    
-            <div *ngIf="multiple" class="picklist-before-after">
-              <mat-checkbox [(ngModel)]="item.selected" (change)="addRemoveSelection(item,'selected')"></mat-checkbox>
-            </div>
+            
+            @if(multiple){
+              <div class="picklist-before-after">
+                <mat-checkbox [(ngModel)]="item.selected" (change)="addRemoveSelection(item,'selected')"></mat-checkbox>
+              </div>
+            }
+        
           </div>
-    
         </div>
         </cdk-virtual-scroll-viewport>
       </div>
-  
   </div>
   

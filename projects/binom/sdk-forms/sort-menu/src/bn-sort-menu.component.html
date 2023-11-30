@@ -25,9 +25,12 @@ matTooltip="{{translateTag+'bnOrderMenue.orderBy' | translate}} {{active}} {{(tr
       </div>
     </div>
     <div style="padding-right: 5px;padding-left: 5px;">
-      <button [disabled]="active ===''" mat-button color="warn" *ngIf="showClear"  (click)="sortBy('doClearValues', true)">
-        {{'bnOrderMenue.clearOrder' | translate}}
-      </button>
+      @if(showClear){
+        <button [disabled]="active ===''" mat-button color="warn"  (click)="sortBy('doClearValues', true)">
+          {{'bnOrderMenue.clearOrder' | translate}}
+        </button>
+      }
+     
     </div>
   </div>
 </mat-menu>
