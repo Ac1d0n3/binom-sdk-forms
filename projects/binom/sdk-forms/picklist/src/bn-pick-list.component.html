@@ -15,7 +15,9 @@
         ></bn-mini-header>
   
       </div>
-      <bn-progress-content *ngIf="!dataLoaded" ></bn-progress-content>
+
+      @if(!dataLoaded){ <bn-progress-content></bn-progress-content> }
+     
       <cdk-virtual-scroll-viewport [itemSize]="vItemSize" [hidden]="!dataLoaded"
       [minBufferPx]="vBuffer" [maxBufferPx]="vBuffer*1.5"
       class="cdk-view-box {{possibleData.length == 0  ? 'empty-list':''}}">
@@ -42,9 +44,11 @@
               [ngForOf]="[item]"
               [ngForTemplate]="picklistContent" >
             </ng-template>
-  
-            <div *ngIf="!picklistContent" >{{item[label] | translate}} </div>
-  
+            
+            @if(!picklistContent){
+              <div>{{item[label] | translate}} </div>
+            }
+           
           </div>
           <div class="picklist-before-after">
             <mat-checkbox [(ngModel)]="item.selected" (change)="addRemoveSelection(item,'possible')"></mat-checkbox>
@@ -84,7 +88,7 @@
           [label]="showCount? selectedHeader + ' (' + selectedData.length +')':selectedHeader "></bn-mini-header>
     
         </div>
-        <bn-progress-content *ngIf="!dataLoadedSelected" ></bn-progress-content>
+        @if(!dataLoadedSelected){ <bn-progress-content></bn-progress-content> }
 
         <cdk-virtual-scroll-viewport [itemSize]="vItemSize"
         [minBufferPx]="vBuffer" [maxBufferPx]="vBuffer*1.5" [hidden]="!dataLoaded"
@@ -109,8 +113,9 @@
                 [ngForOf]="[item]"
                 [ngForTemplate]="picklistContent">
               </ng-template>
-    
-              <div *ngIf="!picklistContent">{{item[label] | translate}}</div>
+              
+              @if(!picklistContent){ <div>{{item[label] | translate}}</div> }
+             
     
             </div>
     

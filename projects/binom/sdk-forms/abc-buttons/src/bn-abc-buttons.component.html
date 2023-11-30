@@ -1,2 +1,3 @@
-
-<button class="bn-abc-but" mat-button *ngFor="let letter of alphabet" (click)="handleButtclickedOn(letter)">{{ letter }}</button>
+@for(letter of alphabet; track $index){
+    <button class="bn-abc-but" mat-button (click)="handleButtclickedOn(letter)">{{ letter }}</button>
+}

@@ -1,17 +1,21 @@
 <mat-toolbar [color]="color" class="{{orderData.length >0 ? 'bn-mini-header-sort ':'bn-mini-header '}} {{withSearch && !showLabel ? '' : 'withLabel'}}{{orderData.length >0 ? 'Sort':''}}">
 
-    <div *ngIf="showLabel && !show" class="label">{{ label | translate }}</div>
+    @if(showLabel && !show){
+      <div class="label">{{ label | translate }}</div>
+    }
 
-     <bn-mini-search *ngIf="show && withSearch" style="width:100%"
-      (searchTextChange)="searchChange($event)"
-      (activeSearchFields)="onActivSearchFields($event)"
-      [searchText]="searchText"
-      [searchFields]="searchFields"
-      [currentSelected]="currentSelected"
-      [enableToolTips]="enableToolTips"
-      [translateTag]="translateTag">
-    </bn-mini-search>
-
+    @if(show && withSearch){
+      <bn-mini-search style="width:100%"
+        (searchTextChange)="searchChange($event)"
+        (activeSearchFields)="onActivSearchFields($event)"
+        [searchText]="searchText"
+        [searchFields]="searchFields"
+        [currentSelected]="currentSelected"
+        [enableToolTips]="enableToolTips"
+        [translateTag]="translateTag">
+      </bn-mini-search>
+    }
+    
     <div>
       <button mat-icon-button class="bn-mini-header-toggle bn-button-fa" 
       matTooltip="{{(translateTag+'bnMiniSearch.'+(show? searchText != ''? 'clear': 'hide': 'show')) | translate}}"
@@ -21,14 +25,17 @@
       </button>
     </div>
     <div>
-    <bn-sort-menu
-      *ngIf="orderData.length>0"
-      (activeOrder)="orderChange($event)"
-      [orderData]="orderData" size="small"
-      [enableToolTips]="enableToolTips"
-      [translateTag]="translateTag"
-      class="orderMenue">
-    </bn-sort-menu>
+
+    @if(orderData.length>0){
+      <bn-sort-menu
+        (activeOrder)="orderChange($event)"
+        [orderData]="orderData" size="small"
+        [enableToolTips]="enableToolTips"
+        [translateTag]="translateTag"
+        class="orderMenue">
+      </bn-sort-menu>
+    }
+   
   </div>
 
 </mat-toolbar>
