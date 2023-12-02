@@ -1,6 +1,6 @@
 {
   "name": "@binom/sdk-forms",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "forms Lib for projects",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
     "@angular/common": "^17.0.0",
     "@angular/core": "^17.0.0",
     "@ngx-translate/core": "^15.0.0",
-    "@binom/sdk-core": "^1.0.9"
+    "@binom/sdk-core": "^1.1.5"
   },
   "dependencies": {
     "tslib": "^2.3.0"

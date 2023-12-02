@@ -1,6 +1,6 @@
 # @binom/sdk-forms
 ---------------------------------------------------------------------------------
-** CORE V1.0.2
+** CORE V1.0.3
 Author: Thomas Lindackers 
 
 BINOM.net
@@ -11,6 +11,7 @@ npm i @binom/sdk-forms
 
 ---------------------------------------------------------------------------------
 ## What's new / updates
+1.0.3 add assets folder
 1.0.2 replace *ngIf / *ngFor to @if / @for
 
 ## inlcudes

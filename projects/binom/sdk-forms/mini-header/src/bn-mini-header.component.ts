@@ -5,7 +5,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule } from '@ngx-translate/core';
 import { BnSortMenuComponent } from '@binom/sdk-forms/sort-menu';
-import { BnMiniSearchComponent } from '@binom/sdk-forms/mini-search';
+import { BnMiniSearchComponent } from '@binom/sdk-core/mini-search';
 import { BooleanInput, NumberInput, coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 
 @Component({

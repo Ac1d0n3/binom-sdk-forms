@@ -40,11 +40,7 @@ export const routes: Routes = [{
         loadComponent:  () => import('./demo-mini-header/demo-mini-header.component').then(m => m.DemoMiniHeaderComponent)
     },
 
-    {
-        path: 'components/mini-search',
-        loadComponent:  () => import('./demo-mini-search/demo-mini-search.component').then(m => m.DemoMiniSearchComponent)
-    },
-
+   
     {
         path: 'components/picklist',
         loadComponent:  () => import('./demo-picklist/demo-picklist.component').then(m => m.DemoPicklistComponent)
